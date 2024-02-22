@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📋 Download My Snippet</title> <!-- Emoji-based text favicon -->
+    <link rel="icon" href="path/to/your/favicon.png" type="image/png">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0; /* default background color */
+    }
+
+    #container {
+      text-align: center;
+    }
+
+    #download-btn {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #download-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .dark-mode {
+      background-color: #121212; /* dark mode background color */
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      #download-btn {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div id="container">
+        <h3>Download My Snippet</h3>   
+        <button id="download-btn">Download</button>
+    </div>
+
+  <script>
+    const downloadBtn = document.getElementById('download-btn');
+
+    downloadBtn.addEventListener('click', () => {
+      // Simulating download with a 2-second delay
+      setTimeout(() => {
+        // Creating a dummy anchor element to trigger download
+        const link = document.createElement('a');
+        link.href = 'path/to/mysnippets.snippet';
+        link.download = 'mysnippets.snippet';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }, 2000); // 2 seconds
+    });
+
+    // Toggle dark mode
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    // Initial theme setup based on system preference
+    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+    if (prefersDarkScheme.matches) {
+      toggleDarkMode();
+    }
+  </script>
+</body>
+</html>
